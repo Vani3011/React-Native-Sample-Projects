@@ -46,6 +46,7 @@ const AddToDo = ({ handleClose = () => false, list = [], setList = () => false, 
                         <TextInput
                             style={styles.customTextInput}
                             placeholder="Enter here"
+                            placeholderTextColor="#000" 
                             onChangeText={newText => updateState(newText)}
                             defaultValue={text?.name}
                         />
