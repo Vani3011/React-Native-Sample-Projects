@@ -42,7 +42,7 @@ const AddToDo = ({ handleClose = () => false, list = [], setList = () => false, 
                 </View>
                 <View style={styles.divider} />
                 <View style={styles.textBoxContainer}>
-                    <View style={{ height: 250 }}>
+                    <View style={{ height: 200 }}>
                         <TextInput
                             style={styles.customTextInput}
                             placeholder="Enter here"

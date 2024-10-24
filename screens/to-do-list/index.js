@@ -84,7 +84,7 @@ const ToDoList = () => {
                 </View>
                 <View style={styles.divider} />
                 {/* <ToastManager/> */}
-                <View style={styles.list}>
+                <View style={[styles.list,{height:windowHeight}]}>
                     {list?.length > 0 ?
                         <ScrollView>
                             {/* <FlatList
@@ -117,7 +117,7 @@ const ToDoList = () => {
                 visible={isBottomSheetOpen}
                 // We pass our function as default function to close the Modal
                 onRequestClose={handleCloseBottomSheet} >
-                <View style={[styles.bottomSheet, { height: windowHeight * 0.6 }]}>
+                <View style={[styles.bottomSheet, { height: 320}]}>
                     <AddToDo handleClose={handleCloseBottomSheet} list={list} setList={setList} text={text} setText={setText} showToast={showToast} />
                 </View>
             </Modal>

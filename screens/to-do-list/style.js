@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
     },
     list:{
         padding:12,
+        backgroundColor:"#F5F7FA"
     },
     listBox:{
         marginBottom:8,
@@ -91,8 +92,8 @@ export const styles = StyleSheet.create({
         alignItems:"center",
         backgroundColor:"#5C5CFF",
         position:"absolute",
-        top:480,
-        bottom:0,
+        // top:0,
+        bottom:80,
         right:0,
         margin:16
     },
@@ -116,7 +117,8 @@ export const styles = StyleSheet.create({
         borderWidth:1,
         borderColor:"#E4E8EE",
         borderRadius:4,
-        padding:12 
+        padding:12 ,
+        color:"#000000"
     },
     customButton:{
         borderRadius:4,
