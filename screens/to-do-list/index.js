@@ -6,7 +6,7 @@ import MUIIcon from "react-native-vector-icons/MaterialIcons"
 import AddToDo from "./addTodo"
 import { styles } from "./style"
 import CheckBox from 'expo-checkbox'
-const ToDoList = () => {
+const ToDoList = ({navigation}) => {
     const windowHeight = Dimensions.get('window').height;
     const [text, setText] = useState({
         name: ""
