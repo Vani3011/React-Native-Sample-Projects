@@ -10,14 +10,14 @@ export const GroceryHome = ({navigation}) => {
     const windowHeight = Dimensions.get('window').height
     const windowWidth = Dimensions.get('window').width
     const [selectedList, setSelectedList] = useState(TabList[0])
-    const {selectedGroceryList, setSelectedGroceryList} = useContext(GroceryContext)
+    const [tabData,setTabData]=useState(Groceries)
     const handleChangeTab = (val) => {
         setSelectedList(val)
         if (val?.value > 1) {
-            setSelectedGroceryList(Groceries?.filter((x) => { return x?.type === (val.value === 2 ? "Fruits" : val?.value ===3 ? "Vegetables":val?.value === 4 ? "Pulses" : val?.value===5?"Snacks":"Others") }))
+            setTabData(Groceries?.filter((x) => { return x?.type === (val.value === 2 ? "Fruits" : val?.value ===3 ? "Vegetables":val?.value === 4 ? "Pulses" : val?.value===5?"Snacks":"Others") }))
         }
         else {
-            setSelectedGroceryList(Groceries)
+            setTabData(Groceries)
         }
     }
    
@@ -50,7 +50,7 @@ export const GroceryHome = ({navigation}) => {
             </View>
             <View style={{ marginTop: 16,height:windowHeight-430 }}>
                 <FlatList
-                    data={selectedGroceryList}
+                    data={tabData}
                     numColumns={2}
                     keyExtractor={(item) => item.value}
                     renderItem={({ index, item }) => (

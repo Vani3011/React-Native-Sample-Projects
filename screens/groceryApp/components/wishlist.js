@@ -49,8 +49,8 @@ const MyWishlist = ({ navigation, details = "" }) => {
                         )} />
                 </View>
                 :
-                <View style={styles.nodataImg}>
-                    <Image source={require('../../../assets/images/nodata.jpg')} />
+                <View>
+                    <Image source={require('../../../assets/images/noDataFound.png')} style={{width:windowWidth}}/>
                 </View>
             }
         </View>

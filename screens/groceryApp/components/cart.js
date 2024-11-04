@@ -34,7 +34,9 @@ const MyCart = ({ navigation, details = "" }) => {
         const result = selectedGroceryList?.map((x) => {
             return {
                 ...x,
-                is_liked: val === x?.value ? true : x?.is_liked
+                is_liked: val === x?.value ? true : x?.is_liked,
+                is_cart: val === x?.value ? false : x?.is_cart
+
             }
         })
         setSelectedGroceryList(result)
@@ -51,7 +53,7 @@ const MyCart = ({ navigation, details = "" }) => {
         setSelectedGroceryList(result)
     }
     return (
-        <View style={[styles.viewSection, { position: 'relative' }]}>
+        <View style={[styles.viewSection, { position: 'relative', height: windowHeight }]}>
             <View style={{ flexDirection: 'row', padding: 16 }}>
                 <TouchableOpacity onPress={() => navigation.push("GroceryDashboard")}>
                     <Icon name="arrow-back" size={20} color={"#000"} />
@@ -60,30 +62,30 @@ const MyCart = ({ navigation, details = "" }) => {
 
             </View>
             {selectedGroceryList?.filter((x) => { return x?.is_cart })?.length > 0 ?
-                <View style={{ padding: 8, height: windowHeight / 1.28 }}>
-                    <FlatList
-                        data={selectedGroceryList?.filter((x) => { return x?.is_cart })}
-                        numColumns={1}
-                        keyExtractor={(item) => item.value}
-                        renderItem={({ index, item }) => (
-                            <WishListCard item={item} isShowCart={true} handleRemove={handleRemoveFromCart} handleCart={handleWishList} handleCount={handleCount} />
-                        )} />
-                </View>
+                <View style={{ padding: 8,height: windowHeight / 1.6,position:'relative' }}>
+                        <FlatList
+                            data={selectedGroceryList?.filter((x) => { return x?.is_cart })}
+                            numColumns={1}
+                            keyExtractor={(item) => item.value}
+                            renderItem={({ index, item }) => (
+                                <WishListCard item={item} isShowCart={true} handleRemove={handleRemoveFromCart} handleCart={handleWishList} handleCount={handleCount} />
+                            )} />
+                    </View>
                 :
-                <View style={[styles.nocartdataImg, { height: windowHeight }]}>
-                    <Image source={require('../../../assets/images/nodata.jpg')} />
+                <View>
+                    <Image source={require('../../../assets/images/noDataFound.png')} style={{ width: windowWidth }} />
                 </View>
             }
-            {selectedGroceryList?.filter((x) => { return x?.is_cart })?.length > 0 &&
-                <View style={styles.cartBottomDiv}>
-                    <Text style={styles.amount}>{`Rs.${selectedGroceryList?.filter((x) => { return x?.is_cart })?.reduce((accumulator, item) => {
-                        return accumulator += item?.total_amount
-                    }, 0)}`}</Text>
-                    <TouchableOpacity style={[styles.orderBtn, { width: windowHeight / 4 }]} onPress={handleOpenBottomSheet}>
-                        <Text style={styles.cartBtnText}>{'Place Order'}</Text>
-                    </TouchableOpacity>
-                </View>
-            }
+              {selectedGroceryList?.filter((x) => { return x?.is_cart })?.length > 0 &&
+  <View style={styles.cartBottomDiv}>
+                        <Text style={styles.amount}>{`Rs.${selectedGroceryList?.filter((x) => { return x?.is_cart })?.reduce((accumulator, item) => {
+                            return accumulator += item?.total_amount
+                        }, 0)}`}</Text>
+                        <TouchableOpacity style={[styles.orderBtn, { width: windowHeight / 4 }]} onPress={handleOpenBottomSheet}>
+                            <Text style={styles.cartBtnText}>{'Place Order'}</Text>
+                        </TouchableOpacity>
+                    </View>
+}
             <Modal
                 animationType="slide"
                 transparent={true}
@@ -92,11 +94,11 @@ const MyCart = ({ navigation, details = "" }) => {
                 // We pass our function as default function to close the Modal
                 onRequestClose={handleCloseBottomSheet} >
                 <View style={[styles.bottomSheet, { height: windowHeight / 1.5, padding: 16 }]}>
-                    <TouchableOpacity style={{flexDirection:'row',justifyContent:'flex-end'}} onPress={handleCloseBottomSheet}>
+                    <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'flex-end' }} onPress={handleCloseBottomSheet}>
                         <Icon name="close" size={16} color="#000000" />
                     </TouchableOpacity>
                     <Image source={require('../../../assets/images/noservice.png')} style={{ width: windowWidth, height: 300 }} />
-                    <View style={{marginTop:4}}>
+                    <View style={{ marginTop: 4 }}>
                         <Text style={styles.removeText}>This feature is currently unavailable</Text>
                     </View>
                 </View>

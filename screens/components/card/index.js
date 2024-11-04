@@ -55,7 +55,7 @@ export const WishListCard = ({ item = "", handleRemove = "", handleCart = "", is
                 {isShowCart ?
                     <TouchableOpacity style={[styles.cartbtn, { width: windowWidth / 2.5 }]} onPress={() => handleCart(item?.value)} disabled={item?.is_liked ? true : false}><Text style={styles.cartText}>{item?.is_liked ? "In Wishlist" : "Move to wishlist"}</Text></TouchableOpacity>
                     :
-                    <TouchableOpacity style={[styles.cartbtn, { width: windowWidth / 2.5 }]} onPress={() => handleCart(item?.value)} disabled={item?.is_cart ? true : false}><Text style={styles.cartText}>{item?.is_cart ? "Added in cart" : "Add to cart"}</Text></TouchableOpacity>
+                    <TouchableOpacity style={[styles.cartbtn, { width: windowWidth / 2.5 }]} onPress={() => handleCart(item?.value)} disabled={item?.is_cart ? true : false}><Text style={styles.cartText}>{item?.is_cart ? "In Your Cart" : "Add to cart"}</Text></TouchableOpacity>
                 }
             </View>
         </View>
