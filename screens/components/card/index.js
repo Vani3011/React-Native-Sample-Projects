@@ -35,13 +35,13 @@ export const WishListCard = ({ item = "", handleRemove = "", handleCart = "", is
                 </View>
                 {isShowCart &&
                     <View style={{ flexDirection: 'row' }}>
-                        <TouchableOpacity onPress={() => handleCount('decrement')} disabled={item?.item_count > 1 ? false : true}>
+                        <TouchableOpacity onPress={() => handleCount('decrement',item)} disabled={item?.item_count > 1 ? false : true}>
                             <View style={styles.decrementbtn}>
                                 <Text style={styles.decrementText}>-</Text>
                             </View>
                         </TouchableOpacity>
-                        <Text style={styles.item_count}>{item?.item_count ?? 1}</Text>
-                        <TouchableOpacity onPress={() => handleCount('increment')}>
+                        <Text style={styles.item_count}>{item?.item_count}</Text>
+                        <TouchableOpacity onPress={() => handleCount('increment',item)}>
                             <View style={styles.decrementbtn}>
                                 <Text style={styles.decrementText}>+</Text>
                             </View>
@@ -55,7 +55,7 @@ export const WishListCard = ({ item = "", handleRemove = "", handleCart = "", is
                 {isShowCart ?
                     <TouchableOpacity style={[styles.cartbtn, { width: windowWidth / 2.5 }]} onPress={() => handleCart(item?.value)} disabled={item?.is_liked ? true : false}><Text style={styles.cartText}>{item?.is_liked ? "In Wishlist" : "Move to wishlist"}</Text></TouchableOpacity>
                     :
-                    <TouchableOpacity style={[styles.cartbtn, { width: windowWidth / 2.5 }]} onPress={() => handleCart(item?.value)} disabled={item?.is_cart ? true : false}><Text style={styles.cartText}>{item?.is_cart ? "Added" : "Add to cart"}</Text></TouchableOpacity>
+                    <TouchableOpacity style={[styles.cartbtn, { width: windowWidth / 2.5 }]} onPress={() => handleCart(item?.value)} disabled={item?.is_cart ? true : false}><Text style={styles.cartText}>{item?.is_cart ? "Added in cart" : "Add to cart"}</Text></TouchableOpacity>
                 }
             </View>
         </View>

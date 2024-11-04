@@ -173,5 +173,70 @@ export const styles = StyleSheet.create({
       alignItems:'center',
       marginHorizontal:50,
       marginVertical:50
-   }
+   },
+   nocartdataImg:{
+      flexDirection:'row',
+      justifyContent:'center',
+      // alignItems:'center',
+      marginVertical:50,
+   },
+   removeBtn: {
+      borderWidth: 1,
+      borderColor: "#E4E8EE",
+      borderRadius: 12,
+      padding: 8,
+      // width: 100,
+      flexDirection: 'row',
+      justifyContent: 'center'
+   },
+   removeText: {
+      fontFamily: 'Poppins-SemiBold',
+      fontSize: 14,
+      // textTransform: "uppercase",
+      color: "#091B29",
+      textAlign: 'center'
+   },
+   cartBottomDiv:{
+      backgroundColor:"#ffffff",
+      // borderRadius:25,
+      paddingHorizontal:12,
+      paddingVertical:8,
+      borderTopWidth:1,
+      borderColor:"#E4E8EE",
+      // margin:16,
+      position:'absolute',
+      bottom:25,
+      left:0,
+      right:0,
+      flexDirection:'row',
+      justifyContent:'space-between',
+      alignItems:'center'
+      // top:0
+   },
+   orderBtn:{
+      backgroundColor:"#ed714d",
+         borderRadius:25,
+         padding:8,
+   },
+   amount:{
+      fontFamily: 'Poppins-SemiBold',
+      fontSize: 16,
+      // textTransform: "uppercase",
+      color: "#091B29",
+   },
+   bottomSheet: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      // justifyContent: 'flex-start',
+      // alignItems: 'center',
+      backgroundColor: 'white',
+      borderTopLeftRadius: 10,
+      borderTopRightRadius: 10,
+      // paddingVertical: 23,
+      // paddingHorizontal: 25,
+      bottom: 0,
+      borderWidth: 1,
+      borderColor: '#E4E8EE'
+  },
 })

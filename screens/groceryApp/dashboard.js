@@ -4,10 +4,15 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { GroceryHome } from "./components/home";
 import MyWishlist from "./components/wishlist";
 import MyCart from "./components/cart";
+import React from "react";
+import { GroceryContext } from "../context/groceryContext";
+import Notifications from "./components/notification";
+
 
 
 const GroceryDashboard = () => {
     const Tab = createBottomTabNavigator()
+    const {selectedGroceryList}=React.useContext(GroceryContext)
     return (
         <Tab.Navigator screenOptions={{
             tabBarStyle: {
@@ -16,7 +21,7 @@ const GroceryDashboard = () => {
                 borderTopLeftRadius: 25,
                 height: 75,
                 backgroundColor: '#ffffff',
-                position:'absolute'
+                position: 'absolute'
             },
             headerShown: false,
             tabBarShowLabel: false,
@@ -48,16 +53,23 @@ const GroceryDashboard = () => {
                 }} />
             <Tab.Screen name="Cart"
                 component={MyCart}
-                options={{
+                options={selectedGroceryList?.filter((x)=>{return x?.is_cart})?.length>0?{
                     tabBarIcon: ({ size, focused, color }) => (
                         <View style={{ backgroundColor: focused ? "#ed714d" : "#ffffff", borderRadius: 50, padding: focused ? 20 : 0 }}>
                             <Icon name={focused ? "cart" : "cart-outline"} size={20} color={focused ? "#ffffff" : "#000000"} />
                         </View>
 
                     ),
-                }} />
+                    tabBarBadge:selectedGroceryList?.filter((x)=>{return x?.is_cart})?.length
+                    // tabBarBadgeStyle:{backgroundColor:"white"}
+                }: {tabBarIcon: ({ size, focused, color }) => (
+                    <View style={{ backgroundColor: focused ? "#ed714d" : "#ffffff", borderRadius: 50, padding: focused ? 20 : 0 }}>
+                        <Icon name={focused ? "cart" : "cart-outline"} size={20} color={focused ? "#ffffff" : "#000000"} />
+                    </View>
+
+                ),}} />
             <Tab.Screen name="Notification"
-                component={GroceryHome}
+                component={Notifications}
                 options={{
                     tabBarIcon: ({ size, focused, color }) => (
                         <View style={{ backgroundColor: focused ? "#ed714d" : "#ffffff", borderRadius: 50, padding: focused ? 20 : 0 }}>

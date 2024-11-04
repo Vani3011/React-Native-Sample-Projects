@@ -11,10 +11,10 @@ export const GroceryView = ({ navigation, route }) => {
     const [details, setDetails] = useState(route?.params)
     const windowHeight = Dimensions.get('window').height
     const windowWidth = Dimensions.get('window').width
-    const { setSelectedGroceryList } = useContext(GroceryContext)
+    const { selectedGroceryList,setSelectedGroceryList } = useContext(GroceryContext)
     const handleLike = (val) => {
         setDetails({ ...details, is_liked: details?.is_liked ? false : true })
-        const result = Groceries?.map((x) => {
+        const result = selectedGroceryList?.map((x) => {
             return {
                 ...x,
                 is_liked: val === x?.value ? (x?.is_liked ? false : true) : x?.is_liked
@@ -24,17 +24,19 @@ export const GroceryView = ({ navigation, route }) => {
     }
     const handleCount = (key) => {
         setDetails({ ...details, item_count: key === "decrement" ? (details?.item_count - 1) : (details?.item_count + 1) })
-        const result = Groceries?.map((x) => {
+        const result = selectedGroceryList?.map((x) => {
             return {
                 ...x,
-                item_count: details?.value === x?.value ? (key === "decrement" ? (details?.item_count - 1) : (details?.item_count + 1)) : x?.item_count
+                item_count: details?.value === x?.value ? (key === "decrement" ? (details?.item_count - 1) : (details?.item_count + 1)) : x?.item_count,
+                total_amount:details?.value === x?.value ? (key === "decrement" ? (x?.price*(details?.item_count - 1)) : (x?.price*(details?.item_count + 1))) : x?.price
+
             }
         })
         setSelectedGroceryList(result)
     }
     const handleCart = (val) => {
         setDetails({ ...details, is_cart: details?.is_cart ? false : true })
-        const result = Groceries?.map((x) => {
+        const result = selectedGroceryList?.map((x) => {
             return {
                 ...x,
                 is_cart: val === x?.value ? true : x?.is_cart
@@ -97,7 +99,7 @@ export const GroceryView = ({ navigation, route }) => {
                 </View>
             </View>
             <TouchableOpacity style={styles.cartBtn} onPress={() => handleCart(details?.value)}>
-                <Text style={styles.cartBtnText}>{details?.is_cart ? 'Added' : 'Add to Cart'}</Text>
+                <Text style={styles.cartBtnText}>{details?.is_cart ? 'Added to cart' : 'Add to Cart'}</Text>
             </TouchableOpacity>
         </View>
     )

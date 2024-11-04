@@ -7,6 +7,7 @@ import { GroceryView } from "./screens/groceryApp/components/groceryView";
 import MyContextProvider from "./screens/context/groceryContext";
 import MyWishlist from "./screens/groceryApp/components/wishlist";
 import MyCart from "./screens/groceryApp/components/cart";
+import Notifications from "./screens/groceryApp/components/notification";
 
 
 
@@ -23,6 +24,8 @@ const App = () => {
         <Stack.Screen name="GroceryView" component={GroceryView} />
         <Stack.Screen name="MyWishlist" component={MyWishlist} />
         <Stack.Screen name="MyCart" component={MyCart} />
+        <Stack.Screen name="Notifications" component={Notifications} />
+
 
       </Stack.Navigator>
     </NavigationContainer>
