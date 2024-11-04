@@ -167,7 +167,7 @@ export const Groceries =[
     },
     {
         value: 9,
-        name: "Urd Dhal",
+        name: "Urad Dhal",
         icon: require('../../assets/images/urddhal.jpg'),
         amount:'Rs.250 / kg',
         type:"Pulses",

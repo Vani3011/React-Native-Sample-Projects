@@ -24,7 +24,7 @@ const MyCart = ({ navigation, details = "" }) => {
         const result = selectedGroceryList?.map((x) => {
             return {
                 ...x,
-                is_cart: val === x?.value ? false : x?.is_cart
+                is_cart: val === x?.value ? false : x?.is_cart,
             }
         })
         setSelectedGroceryList(result)
@@ -47,7 +47,7 @@ const MyCart = ({ navigation, details = "" }) => {
             return {
                 ...x,
                 item_count: val?.value === x?.value ? (key === "decrement" ? (val?.item_count - 1) : (val?.item_count + 1)) : x?.item_count,
-                total_amount: val?.value === x?.value ? (key === "decrement" ? (x?.price * (val?.item_count - 1)) : (x?.price * (val?.item_count + 1))) : x?.price
+                total_amount: val?.value === x?.value ? (key === "decrement" ? (x?.price * (val?.item_count - 1)) : (x?.price * (val?.item_count + 1))) : (x?.price*x?.item_count)
             }
         })
         setSelectedGroceryList(result)

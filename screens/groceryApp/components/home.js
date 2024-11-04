@@ -10,7 +10,7 @@ export const GroceryHome = ({navigation}) => {
     const windowHeight = Dimensions.get('window').height
     const windowWidth = Dimensions.get('window').width
     const [selectedList, setSelectedList] = useState(TabList[0])
-    const [tabData,setTabData]=useState(Groceries)
+    const [tabData,setTabData]=useState(Groceries?.map((x)=>{return{...x,total_amount:x?.price*x?.item_count}}))
     const handleChangeTab = (val) => {
         setSelectedList(val)
         if (val?.value > 1) {

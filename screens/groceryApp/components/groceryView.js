@@ -28,7 +28,7 @@ export const GroceryView = ({ navigation, route }) => {
             return {
                 ...x,
                 item_count: details?.value === x?.value ? (key === "decrement" ? (details?.item_count - 1) : (details?.item_count + 1)) : x?.item_count,
-                total_amount:details?.value === x?.value ? (key === "decrement" ? (x?.price*(details?.item_count - 1)) : (x?.price*(details?.item_count + 1))) : x?.price
+                total_amount:details?.value === x?.value ? (key === "decrement" ? (x?.price*(details?.item_count - 1)) : (x?.price*(details?.item_count + 1))) : (x?.price*x?.item_count)
 
             }
         })

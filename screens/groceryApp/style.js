@@ -205,7 +205,7 @@ export const styles = StyleSheet.create({
       borderColor:"#E4E8EE",
       // margin:16,
       position:'absolute',
-      bottom:100,
+      bottom:90,
       left:0,
       right:0,
       flexDirection:'row',

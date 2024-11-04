@@ -10,7 +10,7 @@ const MyWishlist = ({ navigation, details = "" }) => {
     const windowWidth = Dimensions.get('window').width
     const { selectedGroceryList, setSelectedGroceryList } = useContext(GroceryContext)
     const handleRemoveFromWishList = (val) => {
-        const result = Groceries?.map((x) => {
+        const result = selectedGroceryList?.map((x) => {
             return {
                 ...x,
                 is_liked: val === x?.value ? false : x?.is_liked
@@ -20,7 +20,7 @@ const MyWishlist = ({ navigation, details = "" }) => {
 
     }
     const handleCartData = (val) => {
-        const result = Groceries?.map((x) => {
+        const result = selectedGroceryList?.map((x) => {
             return {
                 ...x,
                 is_cart: val === x?.value ? true : x?.is_cart
