@@ -1,5 +1,5 @@
-import { Dimensions, Image, Text, View,TouchableOpacity } from "react-native"
-import { styles } from "./style"
+import { Dimensions, Image, Text, TouchableOpacity, View } from "react-native";
+import { styles } from "./style";
 
 const GroceryApp = ({navigation}) => {
     const windowWidth = Dimensions.get('window').width;

@@ -1,11 +1,10 @@
 
 import { useContext, useState } from "react";
 import { Dimensions, Image, Text, TouchableOpacity, View } from "react-native";
+import { Rating } from "react-native-ratings";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { GroceryContext } from "../../context/groceryContext";
 import { styles } from "../style";
-import { Groceries } from "../utils";
-import { Rating } from "react-native-ratings";
 
 export const GroceryView = ({ navigation, route }) => {
     const [details, setDetails] = useState(route?.params)

@@ -1,8 +1,7 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 import { Dimensions, FlatList, Image, ScrollView, Text, View } from "react-native"
 import { BasicCard } from "../../components/card"
 import { CustomTabComponent } from "../../components/tab"
-import { GroceryContext } from "../../context/groceryContext"
 import { styles } from "../style"
 import { BannerImages, Groceries, TabList } from "../utils"
 

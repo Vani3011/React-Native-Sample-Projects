@@ -1,12 +1,12 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { Text, View } from "react-native"
-import Icon from "react-native-vector-icons/Ionicons";
-import { GroceryHome } from "./components/home";
-import MyWishlist from "./components/wishlist";
-import MyCart from "./components/cart";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
+import { View } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 import { GroceryContext } from "../context/groceryContext";
+import MyCart from "./components/cart";
+import { GroceryHome } from "./components/home";
 import Notifications from "./components/notification";
+import MyWishlist from "./components/wishlist";
 
 
 

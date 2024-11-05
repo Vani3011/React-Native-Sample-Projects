@@ -1,10 +1,9 @@
-import { Dimensions, FlatList, Image, Text, TouchableOpacity, View } from "react-native"
-import { styles } from "../style"
-import Icon from "react-native-vector-icons/MaterialIcons";
-import { BasicCard, WishListCard } from "../../components/card";
 import { useContext } from "react";
+import { Dimensions, FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";
+import { WishListCard } from "../../components/card";
 import { GroceryContext } from "../../context/groceryContext";
-import { Groceries } from "../utils";
+import { styles } from "../style";
 const MyWishlist = ({ navigation, details = "" }) => {
     const windowHeight = Dimensions.get('window').height
     const windowWidth = Dimensions.get('window').width
